@@ -7,7 +7,7 @@ import fire
 
 start_file_name: str = 'start.sh'
 display_running_servers_command: str = 'tmux ls'
-parent_directory = "/home/ubuntu/Minecraft/"
+parent_directory = ""
 
 
 def make_path(parent: str, child: str):
