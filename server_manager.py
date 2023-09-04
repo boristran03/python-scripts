@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 
+
 import os
 import subprocess
 import fire
 
 
-start_file_name: str = 'start.sh'
+minecraft_start_file_name: str = 'start.sh'
 display_running_servers_command: str = 'tmux ls'
-parent_directory = ""
+parent_directory = "/home/ubuntu/Minecraft/"
 
 
 def make_path(parent: str, child: str):
@@ -41,7 +42,7 @@ class Main:
 
     def start_server(name: str):
         server_directory = servers.get(name)
-        start_file = server_directory + "/" + start_file_name
+        start_file = server_directory + "/" + minecraft_start_file_name
 
         result = subprocess.check_output(["sh", start_file], cwd=server_directory, universal_newlines=True)
         print(result)
@@ -63,7 +64,6 @@ class Main:
             else:
                 self.start_server(server_name)
                 print(f"Server {server_name} is starting...")
-
 
 
 if __name__ == '__main__':
